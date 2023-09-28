@@ -1,0 +1,181 @@
+@font-face {
+    font-family: "ArialBlack";
+    src: url(../fonts/ariblk.ttf);
+}
+
+body {
+    margin: 0;
+    font-family: "ArialBlack";
+}
+
+/* верхняя часть страницы */
+
+header {
+    text-align: center;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background-color: #000000;
+}
+
+.nav > li > a {
+    text-decoration: none;
+    font-size: 45px;
+    color: #ffffff;
+}
+
+.nav > li > a > img {
+    vertical-align: middle;
+}
+
+#current-page {
+    text-decoration: underline;
+}
+
+/* account-box */
+
+.account-box {
+    display: none;
+    float: right;
+    background-color: #000000;
+}
+
+.account-box > ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.account-box > ul > li > a {
+    text-decoration: none;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+div {
+    font-size: 40px;
+}
+
+.registration {
+    max-width: 600px;
+    margin: 50px auto;
+    align-items: center;
+    padding: 100px;
+    border: 3px solid #000000;
+    border-radius: 16px;
+}
+
+#date {
+    width: 450px;
+    height: 100px;
+    font-family: "ArialBlack";
+    font-size: 25px;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 16px;
+}
+
+#date::placeholder {
+    text-align: center;
+    opacity: 1;
+}
+
+#name {
+    font-family: "ArialBlack";
+    font-size: 50px;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 16px;
+}
+
+#name::placeholder{
+    opacity: 1;
+}
+
+#email {
+    font-family: "ArialBlack";
+    font-size: 50px;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 16px;
+}
+
+#email::placeholder {
+    opacity: 1;
+}
+
+#password {
+    font-family: "ArialBlack";
+    font-size: 50px;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 16px;
+}
+
+#password::placeholder {
+    opacity: 1;
+}
+
+#done {
+    font-family: "ArialBlack";
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #000;
+    border: none;
+}
+
+#done:active {
+    color: gray;
+}
+
+.game-text {
+    display: flex;
+    align-items: center;
+}
+
+.game-text > ul {
+    list-style-type: none;
+}
+
+#chat::placeholder {
+    opacity: 1;
+}
+
+#chat {
+    width: 1800px;
+    font-family: "ArialBlack";
+    font-size: 50px;
+    color: #ffffff;
+    background-color: #757575;
+    border: none;
+}
+
+.chat {
+    max-width: 700px;
+    align-items: center;
+    margin: 272px auto;
+    padding: 100px;
+}
+
+#random_fact{
+    width: 450px;
+    font-size: 25px;
+    font-family: "ArialBlack";
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 16px;
+    align-items: center;
+}
