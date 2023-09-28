@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeBlox Wiki</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <ul class="nav">
+            <li><a href=""><img src="images/MemeBlox_logo.svg" alt="logo"></a></li>
+            <li><a href="index.html" id="current-page">Главная</a></li>
+            <li><a href="games_page.html">Игры</a></li>
+            <li><a href="chat_page.html">Чат</a></li>
+            <li><a href="https://discord.gg/6S3AnNavmr" target="_blank">Помощь</a></li>
+            <li>
+                <a href="">
+                    <img src="images/account_box_icon.svg" alt="logo" id="icon">
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="account-box">
+        <ul>
+            <li><a href="страница_войти.html">Войти</a></li>
+            <li><a href="registration_page.html">Регистрация</a></li>
+        </ul>
+    </div>
+
+    <div id="random_fact">Рандомный факт</div>
+
+    <div class="wrapper">
+        <form action="" class="registration">
+            <input id="date"     type="text"   placeholder="Дата рождения" onfocus="this.type='date'" onblur="if (this.value == '') this.type='text'">
+            <input id="name"     type="text"   placeholder="Придумайте имя...">
+            <input id="email"    type="text"   placeholder="EMAIL">
+            <input id="password" type="text"   placeholder="Придумайте пароль...">
+            <input id="done"     type="submit" value="Готово">
+        </form>
+    </div>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script> -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyATo0ohZZWXe1p6qpi99O-qdYhIe4V-KeA",
+            authDomain: "memeblox-wiki-7a706.firebaseapp.com",
+            projectId: "memeblox-wiki-7a706",
+            storageBucket: "memeblox-wiki-7a706.appspot.com",
+            messagingSenderId: "139328437864",
+            appId: "1:139328437864:web:15909606ee859a9304c5dd",
+            measurementId: "G-81DFCTHN4W"
+        };
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        console.log(auth);
+
+        const formRegistration = document.querySelector(".registration");
+
+        formRegistration.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const userName = formRegistration["name"].value;
+            const userDate = formRegistration["date"].value;
+            const userEmail = formRegistration["email"].value;
+            const userPassword = formRegistration["password"].value;
+            // функции для проверки введённых значений
+            // https://stackoverflow.com/questions/69155490/auth-createuserwithemailandpassword-is-not-a-function
+            createUserWithEmailAndPassword(auth, userEmail, userPassword).then(cred => {
+                console.log(cred);
+            });
+        });
+
+
+    </script>
+    <!-- <script src="js/auth.js"></script> -->
+
+    
+    <script src="js/script.js"></script>
+
+</body>
+</html>
