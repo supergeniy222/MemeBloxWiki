@@ -9,6 +9,7 @@ const FACTS = [
     "В игре Побег Из Костромы скриптером является ItzMommy."
 ];
 
+
 function randInt(a, b) {
     a = Math.ceil(a);
     b = Math.floor(b);
@@ -30,6 +31,7 @@ function showAccountBox() {
     });
 }
 
+
 showAccountBox();
 
 const random_facts = document.getElementById("random_fact");
@@ -37,3 +39,6 @@ let n = randInt(0, FACTS.length - 1);
 const newP = document.createElement("p");
 random_facts.textContent = `${FACTS[n]}`;
 document.body.appendChild(newP);
+// random_facts.addEventListener("click", () => {
+// });
+
