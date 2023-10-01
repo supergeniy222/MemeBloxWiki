@@ -9,7 +9,6 @@ const FACTS = [
     "В игре Побег Из Костромы скриптером является ItzMommy."
 ];
 
-
 function randInt(a, b) {
     a = Math.ceil(a);
     b = Math.floor(b);
@@ -30,7 +29,6 @@ function showAccountBox() {
         }
     });
 }
-
 
 showAccountBox();
 
