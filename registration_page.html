@@ -48,6 +48,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
         import { getAuth, createUserWithEmailAndPassword  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";  // *
         const firebaseConfig = {
             apiKey: "AIzaSyATo0ohZZWXe1p6qpi99O-qdYhIe4V-KeA",
             authDomain: "memeblox-wiki-7a706.firebaseapp.com",
@@ -64,17 +65,36 @@
 
         const formRegistration = document.querySelector(".registration");
 
-        formRegistration.addEventListener("submit", (event) => {
+        formRegistration.addEventListener("submit", async (event) => {  // async
             event.preventDefault();
             const userName = formRegistration["name"].value;
             const userDate = formRegistration["date"].value;
             const userEmail = formRegistration["email"].value;
             const userPassword = formRegistration["password"].value;
+
+            try {
+                const docRef = await addDoc(collection(db, "users_mb"), {
+                    date: userDate,
+                    name: userName,
+                    email: userEmail,
+                    password: userPassword
+                });
+                console.log("Проверь БД", docRef.id)
+            } catch (e) {
+                console.error("Ошибка", e);
+            }
+
             // функции для проверки введённых значений
             // https://stackoverflow.com/questions/69155490/auth-createuserwithemailandpassword-is-not-a-function
             createUserWithEmailAndPassword(auth, userEmail, userPassword).then(cred => {
                 console.log(cred);
+                formRegistration["name"].value = "";
+                formRegistration["date"].value = "";
+                formRegistration["email"].value = "";
+                formRegistration["password"].value = "";
             });
+            alert("Вы успешно зарегистрировались");
+            document.getElementById("icon").src = "images/profile_pictures/profile_picture_1.png";
         });
 
 
@@ -86,3 +106,4 @@
 
 </body>
 </html>
+
